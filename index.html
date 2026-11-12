@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Vogue Grocery Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<header class="topbar hidden" id="topbar">
+  <button class="menu-button" id="menuButton" aria-label="Menu">☰</button>
+
+  <a class="brand" href="#" id="homeButton">
+    <span class="brand-mark">K</span>
+    <span>K-VOGUE<small>GROCERY STORE</small></span>
+  </a>
+
+  <div class="search">
+    <input id="searchInput" type="search"
+      placeholder="Search products, fruits, vegetables..."
+      autocomplete="off">
+    <button id="searchButton" aria-label="Search">⌕</button>
+  </div>
+
+  <button id="accountButton" class="account-button">Account</button>
+  <button id="cartButton" class="cart-button">
+    Cart <span id="cartCount">0</span>
+  </button>
+</header>
+
+<main>
+
+  <section id="welcomePage" class="welcome-page">
+    <div class="welcome-frame">
+      <div class="welcome-stars">✳</div>
+      <div class="welcome-stars star-two">✳</div>
+      <div class="welcome-stars star-three">✳</div>
+      <div class="welcome-stars star-four">✳</div>
+
+      <div class="welcome-content">
+        <p class="welcome-small">WELCOME TO</p>
+        <h1>K-VOGUE</h1>
+        <h2>GROCERY STORE</h2>
+        <p class="welcome-description">
+          Fresh finds, happy days, and everything you need in one place.
+        </p>
+
+        <div class="welcome-buttons">
+          <button class="welcome-primary" id="welcomeSignup">Sign Up</button>
+          <button class="welcome-secondary" id="welcomeLogin">Log In</button>
+        </div>
+
+        <p class="welcome-note">FRESH EVERY DAY • SHOP THE K-VOGUE WAY</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="signupPage" class="auth-page hidden">
+    <div class="auth-card">
+      <a class="auth-brand" href="#" id="signupHome">K-VOGUE</a>
+      <p class="auth-kicker">WELCOME TO OUR GROCERY FAMILY</p>
+      <h2>Create Your Account</h2>
+      <p class="auth-subtitle">Sign up to start shopping with K-Vogue.</p>
+
+      <form id="signupForm">
+        <label>Full Name
+          <input id="signupName" type="text" placeholder="Enter your full name" required>
+        </label>
+
+        <label>Email Address
+          <input id="signupEmail" type="email" placeholder="Enter your email" required>
+        </label>
+
+        <label>Password
+          <input id="signupPassword" type="password" placeholder="Create a password" minlength="6" required>
+        </label>
+
+        <label>Confirm Password
+          <input id="signupConfirm" type="password" placeholder="Confirm your password" minlength="6" required>
+        </label>
+
+        <button class="primary-button full-button" type="submit">Create Account</button>
+      </form>
+
+      <p class="auth-switch">
+        Already have an account?
+        <button id="goLogin">Log In</button>
+      </p>
+      <button class="back-link" id="signupBack">Back to Welcome</button>
+    </div>
+  </section>
+
+  <section id="loginPage" class="auth-page hidden">
+    <div class="auth-card">
+      <a class="auth-brand" href="#" id="loginHome">K-VOGUE</a>
+      <p class="auth-kicker">NICE TO SEE YOU AGAIN</p>
+      <h2>Welcome Back!</h2>
+      <p class="auth-subtitle">Log in to continue shopping.</p>
+
+      <form id="loginForm">
+        <label>Email Address
+          <input id="loginEmail" type="email" placeholder="Enter your email" required>
+        </label>
+
+        <label>Password
+          <input id="loginPassword" type="password" placeholder="Enter your password" required>
+        </label>
+
+        <button class="primary-button full-button" type="submit">Log In</button>
+      </form>
+
+      <p class="auth-switch">
+        Don't have an account?
+        <button id="goSignup">Sign Up</button>
+      </p>
+      <button class="back-link" id="loginBack">Back to Welcome</button>
+    </div>
+  </section>
+  
+  <section id="shopPage" class="page hidden">
+
+    <section class="promo-banner">
+      <div class="promo-copy">
+        <p class="eyebrow">HELLO, GROCERY LOVERS!</p>
+        <h1>FRESH FINDS,<br>HAPPY DAYS!</h1>
+        <p>Everything you love, all in one basket.</p>
+        <button class="yellow-button" id="shopNow">Shop Now</button>
+      </div>
+      <div class="promo-image">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900"
+          alt="Fresh vegetables">
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2 id="sectionTitle">K-Vogue / All Categories</h2>
+        <p class="muted" id="resultCount">Browse our grocery products</p>
+      </div>
+    </section>
+
+    <section class="filters">
+      <select id="categoryFilter">
+        <option value="All">All Categories</option>
+        <option value="Fruits">Fruits</option>
+        <option value="Vegetables">Vegetables</option>
+        <option value="Meat">Meat</option>
+        <option value="Seafood">Seafood</option>
+        <option value="Beverages">Beverages</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Canned Goods">Canned Goods</option>
+        <option value="Dairy">Dairy</option>
+        <option value="Bakery">Bakery</option>
+        <option value="Personal Care">Personal Care</option>
+        <option value="Household">Household</option>
+      </select>
+
+      <select id="priceFilter">
+        <option value="all">Price</option>
+        <option value="low">Below ₱50</option>
+        <option value="mid">₱50 - ₱150</option>
+        <option value="high">Above ₱150</option>
+      </select>
+
+      <select id="sortFilter">
+        <option value="default">Sort By</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="name">Name: A to Z</option>
+      </select>
+
+      <button class="filter-reset" id="resetFilters">Clear Filters</button>
+    </section>
+
+    <section id="products" class="product-grid"></section>
+  </section>
+
+  <section id="cartPage" class="page hidden">
+    <div class="page-title">
+      <div>
+        <p class="eyebrow">YOUR SHOPPING</p>
+        <h2>Shopping Cart</h2>
+      </div>
+      <button class="outline-button" data-page="shop">Continue Shopping</button>
+    </div>
+
+    <div class="cart-layout">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3>Your Items</h3>
+          <span id="cartItemLabel">0 items</span>
+        </div>
+        <div id="cartItems"></div>
+      </div>
+
+      <aside class="panel summary-panel">
+        <h3>Order Summary</h3>
+        <div class="summary-line">
+          <span>Subtotal</span><strong id="cartSubtotal">₱0.00</strong>
+        </div>
+        <div class="summary-line">
+          <span>Delivery Fee</span><strong id="cartDelivery">₱0.00</strong>
+        </div>
+        <div class="summary-line total-line">
+          <span>Total</span><strong id="cartTotal">₱0.00</strong>
+        </div>
+        <button class="primary-button full-button" id="proceedCheckout">
+          Proceed to Checkout
+        </button>
+      </aside>
+    </div>
+  </section>
+
+  <section id="checkoutPage" class="page hidden">
+    <div class="page-title">
+      <div>
+        <p class="eyebrow">ALMOST THERE</p>
+        <h2>Checkout</h2>
+      </div>
+      <button class="outline-button" data-page="cart">Back to Cart</button>
+    </div>
+
+    <div class="checkout-layout">
+      <div class="checkout-main">
+        <div class="panel">
+          <h3>Delivery Information</h3>
+
+          <div class="form-grid">
+            <label>Full Name
+              <input id="customerName" type="text" placeholder="Enter your full name">
+            </label>
+
+            <label>Mobile Number
+              <input id="customerPhone" type="tel" placeholder="09XXXXXXXXX">
+            </label>
+
+            <label class="wide">Email Address
+              <input id="customerEmail" type="email" placeholder="Enter your email">
+            </label>
+
+            <label class="wide">Complete Delivery Address
+              <textarea id="customerAddress" rows="3"
+                placeholder="House number, street, barangay, city and province"></textarea>
+            </label>
+
+            <label class="wide">Order Notes
+              <textarea id="orderNotes" rows="2"
+                placeholder="Optional delivery instructions"></textarea>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Payment Method</h3>
+
+          <div class="payment-options">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="GCash" checked>
+              <span class="payment-logo gcash">G</span>
+              <span><strong>GCash</strong><small>Pay using GCash</small></span>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="payment" value="Maya">
+              <span class="payment-logo maya">M</span>
+              <span><strong>Maya</strong><small>Pay using Maya</small></span>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="payment" value="QR Ph">
+              <span class="payment-logo qr">QR</span>
+              <span><strong>QR Ph</strong><small>Scan to pay</small></span>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="payment" value="Card">
+              <span class="payment-logo card-logo">CC</span>
+              <span><strong>Credit / Debit Card</strong><small>Card payment</small></span>
+            </label>
+
+            <label class="payment-option">
+              <input type="radio" name="payment" value="Cash on Delivery">
+              <span class="payment-logo cod">COD</span>
+              <span><strong>Cash on Delivery</strong><small>Pay when your order arrives</small></span>
+            </label>
+          </div>
+
+          <div class="payment-notice" id="paymentNotice">
+            Demo checkout only. Online payments are not processed on this website.
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel summary-panel">
+        <h3>Your Order</h3>
+        <div id="checkoutItems"></div>
+        <div class="summary-line">
+          <span>Subtotal</span><strong id="checkoutSubtotal">₱0.00</strong>
+        </div>
+        <div class="summary-line">
+          <span>Delivery Fee</span><strong id="checkoutDelivery">₱0.00</strong>
+        </div>
+        <div class="summary-line total-line">
+          <span>Total</span><strong id="checkoutTotal">₱0.00</strong>
+        </div>
+        <button class="primary-button full-button" id="placeOrder">Place Order</button>
+      </aside>
+    </div>
+  </section>
+
+ class="page hidden">
+    <div class="success-panel panel">
+      <div class="success-icon">✓</div>
+      <p class="eyebrow">K-VOGUE GROCERY STORE</p>
+      <h2>Order Successfully Placed!</h2>
+      <p class="muted">Thank you for shopping with us!</p>
+      <div class="order-number">
+        Order Number: <strong id="orderNumber"></strong>
+      </div>
+      <div class="success-details" id="successDetails"></div>
+      <button class="primary-button" id="backToShop">Continue Shopping</button>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer" class="hidden">
+  <strong>K-VOGUE GROCERY STORE</strong>
+  <p>Fresh finds, happy days.</p>
+</footer>
+
+<script src="index.js"></script>
+</body>
+</html>
